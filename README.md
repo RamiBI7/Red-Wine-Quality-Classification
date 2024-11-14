@@ -55,3 +55,39 @@ To enhance our model's predictive power, we applied advanced feature transformat
 Here is an example of how this transformation affected the distribution and outliers reduction of fixed acidity
 
 
+
+
+
+
+## **Methodology**
+We chose the F1 Score as our primary evaluation metric due to its balance of precision and recall, crucial for our imbalanced dataset (only 14% high-quality wines). We compared various strategies for handling imbalanced data, with OverSampling_75 consistently outperforming others.
+
+### **Model Performance Progression**
+Our model's performance improved significantly through various stages:
+* Initial Logistic Regression: F1 score 0.3478.
+  
+* After feature transformation: F1 score 0.4314.
+  
+* With oversampling (75%): F1 score 0.5618.
+  
+* After Optuna optimization: F1 score 0.6104.
+
+
+**Cross Validation & Model Performance Analysis**
+We conducted a 40-fold cross-validation, revealing high variability in model performance (mean F1 score: 0.521). The model performed reliably with extreme scores but struggled with mid-range scores.
+Cross Validation Results
+
+**Multi Classifier Optimization & Ensemble Models**
+We optimized six classifiers using Optuna, with LightGBM emerging as the best individual model (F1 score: 0.633). Our final ensemble model achieved an F1 score of 0.6812.
+Ensemble Model Performance
+
+
+## **Key Findings & Conclusions**
+Feature engineering significantly reduced outliers and improved model performance, while oversampling effectively addressed class imbalance issues. The ensemble approach provided the best balance of precision and recall.
+
+**Future Work**
+Future areas of investigation include:
+Analyzing the impact of dropping highly correlated features.
+Improving classification for wines rated 6-7.
+
+**We hope you found this journey through data preprocessing, model optimization, and ensemble creation as enlightening as we did! See you at our next project—cheers!**
