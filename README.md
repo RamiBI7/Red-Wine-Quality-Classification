@@ -14,19 +14,19 @@ This dataset contains physicochemical properties of 1,599 red wine samples from 
 
 The dataset includes the following features:
 
-* Fixed acidity - Represents non-volatile acids in wine, primarily tartaric acid.
-* Volatile acidity - Measures the amount of acetic acid in wine.
-* Citric acid - A weak organic acid naturally present in grapes.
-* Residual sugar - The amount of sugar remaining after fermentation stops.
-* Chlorides - Represents the amount of salt in the wine.
-* Free sulfur dioxide - The free form of SO2 in wine.
-* Total sulfur dioxide - The total amount of SO2 in wine (free and bound forms).
-* Density - The mass per unit volume of wine.
-* pH - Measures the wine's acidity or basicity on a scale of 0-14.
-* Sulphates - A wine additive that contributes to SO2 levels.
-* Alcohol - The percentage of alcohol by volume in the wine.
-* Quality - A sensory score given to the wine on a scale of 0-10.
-* Is High Quality (Target variable) - High quality is defined as a quality score of 7 and above (1); otherwise, it is considered low quality (0).
+* `Fixed acidity` - Represents non-volatile acids in wine, primarily tartaric acid.
+* `Volatile acidity` - Measures the amount of acetic acid in wine.
+* `Citric acid` - A weak organic acid naturally present in grapes.
+* `Residual sugar` - The amount of sugar remaining after fermentation stops.
+* `Chlorides` - Represents the amount of salt in the wine.
+* `Free sulfur dioxide` - The free form of SO2 in wine.
+* `Total sulfur dioxide` - The total amount of SO2 in wine (free and bound forms).
+* `Density` - The mass per unit volume of wine.
+* `pH` - Measures the wine's acidity or basicity on a scale of 0-14.
+* `Sulphates` - A wine additive that contributes to SO2 levels.
+* `Alcohol` - The percentage of alcohol by volume in the wine.
+* `Quality` - A sensory score given to the wine on a scale of 0-10.
+* `Is High Quality` (Target variable) - High quality is defined as a quality score of 7 and above (1); otherwise, it is considered low quality (0).
 
 #### **Feature Data Types**
 All features in the dataset are recorded as continuous values of type float64, with the exception of the target variable `quality` and the derived `is_high_quality` feature, which are of type int64.
@@ -34,5 +34,24 @@ All features in the dataset are recorded as continuous values of type float64, w
 #### **Missing Values**
 There are **no missing values** in the **1,599** entries of the dataset.
 
-#### **Target Variable**
+## **Target Variable**
 The target variable, `quality`, is based on sensory evaluations rated on a scale from 0 to 10. In our dataset, the quality scores range from 3 to 8. We have converted these scores into a binary classification system: scores of 7 and above are classified as high quality (1), while scores below 7 are considered low quality (0). This threshold was selected to balance the number of samples while maintaining a high-quality standard.
+
+Distribution of Quality Scores
+
+## **Imbalance Data**
+Our dataset shows a substantial imbalance between high and low-quality wines, with high-quality wines accounting for approximately 14% of the samples.
+
+Distribution of Target Value
+
+## **Data Preprocessing**
+To enhance our model's predictive power, we applied advanced feature transformations (log, square root, Yeo-Johnson) and used the SelectKBest method for feature selection. This process led to a new 'Transformed Data' dataset with optimally processed features.
+
+**Key Outcomes:**
+* Outlier Reduction: Reduced total outliers from 573 to 315 (45% reduction).
+* Outlier Percentage: Decreased from 35.83% to 19.70%.
+* Features without Outliers: Six features now have no outliers after transformation.
+
+Here is an example of how this transformation affected the distribution and outliers reduction of fixed acidity
+
+
