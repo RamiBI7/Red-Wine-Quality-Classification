@@ -86,7 +86,6 @@ Here is an example of how this transformation affected the distribution and outl
 
 
 
-
 ## **Methodology**
 We chose the F1 score as our primary evaluation metric for the following reasons:
 * **Balance between Precision and Recall**: The F1 score provides a balanced measure of both precision and recall, which is crucial in our case where we want to accurately identify high-quality wines without missing too many or incorrectly classifying low-quality wines.
