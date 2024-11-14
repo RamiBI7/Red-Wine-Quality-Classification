@@ -3,4 +3,4 @@ Data Science Project - Can we predict the quality of wine based on its physicoch
 
 
 
-![w1](https://github.com/user-attachments/assets/4efc2c5a-e57f-451b-8ef5-5335b20ab3b2)
+![w3](https://github.com/user-attachments/assets/6bd61e3c-58a9-436d-92e1-ccf75743d4d3)
