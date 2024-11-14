@@ -73,11 +73,11 @@ Our model's performance improved significantly through various stages:
 * After Optuna optimization: F1 score 0.6104.
 
 
-**Cross Validation & Model Performance Analysis**
+## **Cross Validation & Model Performance Analysis**
 We conducted a 40-fold cross-validation, revealing high variability in model performance (mean F1 score: 0.521). The model performed reliably with extreme scores but struggled with mid-range scores.
 Cross Validation Results
 
-**Multi Classifier Optimization & Ensemble Models**
+## **Multi Classifier Optimization & Ensemble Models**
 We optimized six classifiers using Optuna, with LightGBM emerging as the best individual model (F1 score: 0.633). Our final ensemble model achieved an F1 score of 0.6812.
 Ensemble Model Performance
 
@@ -86,8 +86,10 @@ Ensemble Model Performance
 Feature engineering significantly reduced outliers and improved model performance, while oversampling effectively addressed class imbalance issues. The ensemble approach provided the best balance of precision and recall.
 
 **Future Work**
-Future areas of investigation include:
-Analyzing the impact of dropping highly correlated features.
-Improving classification for wines rated 6-7.
 
-**We hope you found this journey through data preprocessing, model optimization, and ensemble creation as enlightening as we did! See you at our next project—cheers!**
+Future areas of investigation include:
+* Analyzing the impact of dropping highly correlated features.
+* Improving classification for wines rated 6-7.
+
+**We hope you found this journey through data preprocessing, model optimization, and ensemble creation as enlightening as we did! 
+See you at our next project—cheers!** 🍷
