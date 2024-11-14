@@ -124,6 +124,7 @@ The model performed reliably with extreme scores but struggled with mid-range sc
 
 ## **Multi Classifier Optimization & Ensemble Models**
 We optimized six classifiers using Optuna. LightGBM emerged as the best individual model with an F1 score of 0.633 and accuracy of 0.908. However, our final ensemble model (combining Logistic Regression, KNN, and LightGBM) achieved the highest F1 score of 0.6812 with an accuracy of 0.908.
+
 ![image](https://github.com/user-attachments/assets/bb24386f-1b1c-4a40-acf2-fcef4924f711)
 
 
