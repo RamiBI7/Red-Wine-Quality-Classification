@@ -164,5 +164,4 @@ Due to time constraints, several aspects could be further examined:
 * Feature Importance: Conduct a deeper analysis of feature importance across different models to identify key predictors of wine quality.
 * Hyperparameter Tuning: Further optimization for models parameters.
 
-**We hope you found this journey through data preprocessing, model optimization, and ensemble creation as enlightening as we did! 
-See you at our next project—cheers!** 🍷
+**We hope you found this journey through data analysis, preprocessing, model optimization, and ensemble creation as enlightening as we did! Each step provided valuable insights into predicting wine quality and addressing the challenges of imbalanced datasets. We look forward to sharing our next project with you—cheers!** 🍷
