@@ -57,10 +57,11 @@ Here is an example of how this transformation affected the distribution and outl
 
 
 
-
-
 ## **Methodology**
-We chose the F1 Score as our primary evaluation metric due to its balance of precision and recall, crucial for our imbalanced dataset (only 14% high-quality wines). We compared various strategies for handling imbalanced data, with OverSampling_75 consistently outperforming others.
+We chose the F1 score as our primary evaluation metric for the following reasons:
+* **Balance between Precision and Recall**: The F1 score provides a balanced measure of both precision and recall, which is crucial in our case where we want to accurately identify high-quality wines without missing too many or incorrectly classifying low-quality wines.
+* **Class Imbalance**: Our dataset has a significant imbalance between high and low-quality wines, with high-quality wines (rated 7 and above) representing only about 14% of the samples. The F1 score is particularly useful in such imbalanced scenarios as it takes both false positives and false negatives into account, providing a more reliable performance measure than accuracy alone.
+* Note: We also explored the use of F-beta scores, specifically with beta values of 1.2 and 1.5, to potentially give more weight to recall. However, our analysis revealed an interesting pattern: For these beta values, we consistently observed few true positive predictions and at least three times as many false negative predictions. This imbalance persisted across different beta values, indicating a potential bias in our model towards negative predictions. Given these observations, we decided to stay with the F1 score as our primary evaluation
 
 ### **Model Performance Progression**
 Our model's performance improved significantly through various stages:
@@ -78,18 +79,28 @@ We conducted a 40-fold cross-validation, revealing high variability in model per
 Cross Validation Results
 
 ## **Multi Classifier Optimization & Ensemble Models**
-We optimized six classifiers using Optuna, with LightGBM emerging as the best individual model (F1 score: 0.633). Our final ensemble model achieved an F1 score of 0.6812.
-Ensemble Model Performance
+We optimized six classifiers using Optuna. LightGBM emerged as the best individual model with an F1 score of 0.633 and accuracy of 0.908. However, our final ensemble model (combining Logistic Regression, KNN, and LightGBM) achieved the highest F1 score of 0.6812 with an accuracy of 0.908.
 
 
 ## **Key Findings & Conclusions**
-Feature engineering significantly reduced outliers and improved model performance, while oversampling effectively addressed class imbalance issues. The ensemble approach provided the best balance of precision and recall.
+
+**Conclusions:**
+
+* Feature Engineering: The transformation of features significantly reduced outliers and improved model performance, highlighting the importance of proper data preprocessing.
+* Imbalanced Data Handling: Oversampling, especially with optimized strategies, proved crucial in addressing the class imbalance issue.
+* Model Selection: While individual models like LightGBM performed well, the ensemble approach provided the best balance of precision and recall.
+* Performance Metrics: The F1 score was an effective metric for this imbalanced dataset, providing a balanced measure of model performance.
+* Challenges in Mid-range Predictions: The models struggled with wines rated 6-7, suggesting a need for further investigation into these borderline cases.
+* Consistency vs. Performance: Some models (like KNN) showed high consistency but lower overall performance, while others (like XGBoost) showed higher but more variable performance.
 
 **Future Work**
 
-Future areas of investigation include:
-* Analyzing the impact of dropping highly correlated features.
-* Improving classification for wines rated 6-7.
+Due to time constraints, several aspects could be further examined:
+
+* Correlated Features: Investigate the impact of dropping highly correlated features on model performance.
+* Mid-range Scores: Focus on improving classification for wines rated 6-7, possibly by adjusting the threshold or developing a more nuanced scoring system.
+* Feature Importance: Conduct a deeper analysis of feature importance across different models to identify key predictors of wine quality.
+* Hyperparameter Tuning: Further optimize model parameters, especially for the ensemble model.
 
 **We hope you found this journey through data preprocessing, model optimization, and ensemble creation as enlightening as we did! 
 See you at our next project—cheers!** 🍷
