@@ -108,21 +108,40 @@ Our model's performance improved significantly through various stages:
 ![image](https://github.com/user-attachments/assets/73993f84-4d37-4872-9796-e976d4e340b4)
 
 
-## **Cross Validation & Model Performance Analysis**
-We conducted a 40-fold cross-validation, revealing high variability in model performance (mean F1 score: 0.521). 
+## **Cross Validation Analysis**
+We conducted a 40-fold cross-validation on the train data with a **mean F1 score: 0.521**,
+revealing high variability in model performance, indicating sensitivity to data subsets.
+ 
 
 ![image](https://github.com/user-attachments/assets/55dc718e-5750-4416-91ac-a221025e3e4f)
 
-The model performed reliably with extreme scores but struggled with mid-range scores.
+## **Model Performance Analysis**
+We have conducted a model performance analysis by quality scores. 
+The model performed reliably with extreme scores (3-5 and 8) but struggled with mid-range scores (6-7), misclassifying 36 quality 6 instances as high (18.8%) and 18 quality 7 instances as low (30.5%). 
 
 ![image](https://github.com/user-attachments/assets/a7dcbff8-f760-4b61-8792-342eae5f0741)
 
+## **Multi Classifier Optimization & Cross Validation**
+To improve our model, we optimized six pipelines with Feature Transformation and OverSampling on different classifiers — 
+Logistic Regression, Random Forest, KNN, Gradient Boosting, LightGBM, and XGBoost — using Optuna to maximize the F1 score across 100 trials.
+
+LightGBM stood out with the highest F1 score (0.633) and accuracy (0.908), proving to be the most effective model for this dataset.
+While many models achieved perfect training scores, they struggled with generalization, highlighting a risk of overfitting. Further tuning is necessary to enhance performance on unseen data.
+
+![image](https://github.com/user-attachments/assets/146bd5af-abf1-4433-8198-80794ccf1b8d)
+
+We performed a **40-fold Cross Validation Analysis** on these six models to evaluate their performance and stability. 
+The mean F1 scores showed varying levels of performance. XGBoost and Gradient Boosting were the top performers, but all models could benefit from further tuning for improved stability and performance.
 
 ![image](https://github.com/user-attachments/assets/ee0bd82d-359f-4341-8bf7-706bfb010c25)
 
 
-## **Multi Classifier Optimization & Ensemble Models**
-We optimized six classifiers using Optuna. LightGBM emerged as the best individual model with an F1 score of 0.633 and accuracy of 0.908. However, our final ensemble model (combining Logistic Regression, KNN, and LightGBM) achieved the highest F1 score of 0.6812 with an accuracy of 0.908.
+## **Ensemble Models**
+
+Using the 6 optimized models we have conducted a hard voting ensemble model predicting classes by majority vote.
+we then narrowed it down a three-model ensemble and identified the optimal combination of classifiers to maximize the F1 score - Logistic Regression, K-Nearest Neighbors, and LightGBM, achieving an F1 score of 0.681 and accuracy of 0.908 on test data. 
+The confusion matrix showed 389 True Negatives, 26 False Positives, 18 False Negatives, and 47 True Positives, highlighting balanced performance. 
+Despite perfect metrics on training data, test metrics were lower, suggesting overfitting. Further tuning is needed to enhance generalization for unseen data.
 
 ![image](https://github.com/user-attachments/assets/bb24386f-1b1c-4a40-acf2-fcef4924f711)
 
