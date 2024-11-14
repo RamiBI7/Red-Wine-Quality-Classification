@@ -138,17 +138,17 @@ The mean F1 scores showed varying levels of performance. XGBoost and Gradient Bo
 
 ## **Ensemble Models**
 
-Using the 6 optimized models we have conducted a hard voting ensemble model predicting classes by majority vote.
-we then narrowed it down a three-model ensemble and identified the optimal combination of classifiers to maximize the F1 score - Logistic Regression, K-Nearest Neighbors, and LightGBM, achieving an F1 score of 0.681 and accuracy of 0.908 on test data. 
-The confusion matrix showed 389 True Negatives, 26 False Positives, 18 False Negatives, and 47 True Positives, highlighting balanced performance. 
-Despite perfect metrics on training data, test metrics were lower, suggesting overfitting. Further tuning is needed to enhance generalization for unseen data.
+Using the 6 optimized models, we have conducted a hard voting ensemble model predicting classes by the majority vote.
+we then narrowed it down to a three-model ensemble, identifying the optimal combination of classifiers to maximize the F1 score. 
+The best models are - Logistic Regression, K-Nearest Neighbors, and LightGBM, which achieved a **high F1 score of 0.681** and **accuracy of 0.908** on test data. 
+The confusion matrix showed 389 True Negatives, **26 False Positives**, 18 False Negatives, and **47 True Positives**, highlighting enhanced performance. 
+The train metrics on were perfect, suggesting potential overfitting. Further tuning is needed to enhance generalization for unseen data.
 
-![image](https://github.com/user-attachments/assets/bb24386f-1b1c-4a40-acf2-fcef4924f711)
+![image](https://github.com/user-attachments/assets/4bcd5f95-49c8-4890-be4a-ddce67135be4)
 
 
 ## **Key Findings & Conclusions**
 
-**Conclusions:**
 
 * Feature Engineering: The transformation of features significantly reduced outliers and improved model performance, highlighting the importance of proper data preprocessing.
 * Imbalanced Data Handling: Oversampling, especially with optimized strategies, proved crucial in addressing the class imbalance issue.
@@ -157,14 +157,15 @@ Despite perfect metrics on training data, test metrics were lower, suggesting ov
 * Challenges in Mid-range Predictions: The models struggled with wines rated 6-7, suggesting a need for further investigation into these borderline cases.
 * Consistency vs. Performance: Some models (like KNN) showed high consistency but lower overall performance, while others (like XGBoost) showed higher but more variable performance.
 
-**Future Work**
+
+## **Future Work**
 
 Due to time constraints, several aspects could be further examined:
 
 * Correlated Features: Investigate the impact of dropping highly correlated features on model performance.
 * Mid-range Scores: Focus on improving classification for wines rated 6-7, possibly by adjusting the threshold or developing a more nuanced scoring system.
 * Feature Importance: Conduct a deeper analysis of feature importance across different models to identify key predictors of wine quality.
-* Hyperparameter Tuning: Further optimize model parameters, especially for the ensemble model.
+* Hyperparameter Tuning: Further optimization for models parameters.
 
 **We hope you found this journey through data preprocessing, model optimization, and ensemble creation as enlightening as we did! 
 See you at our next project—cheers!** 🍷
