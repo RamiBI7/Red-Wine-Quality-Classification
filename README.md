@@ -38,11 +38,14 @@ There are **no missing values** in the **1,599** entries of the dataset.
 The target variable, `quality`, is based on sensory evaluations rated on a scale from 0 to 10. In our dataset, the quality scores range from 3 to 8. We have converted these scores into a binary classification system: scores of 7 and above are classified as high quality (1), while scores below 7 are considered low quality (0). This threshold was selected to balance the number of samples while maintaining a high-quality standard.
 
 Distribution of Quality Scores
+![image](https://github.com/user-attachments/assets/835a7604-d429-49c2-9318-ed3cf3647b75)
 
 ## **Imbalance Data**
 Our dataset shows a substantial imbalance between high and low-quality wines, with high-quality wines accounting for approximately 14% of the samples.
 
 Distribution of Target Value
+![image](https://github.com/user-attachments/assets/63076004-a762-4c2e-bb43-0855fafbf30a)
+
 
 ## **Data Preprocessing**
 To enhance our model's predictive power, we applied advanced feature transformations (log, square root, Yeo-Johnson) and used the SelectKBest method for feature selection. This process led to a new 'Transformed Data' dataset with optimally processed features.
@@ -54,6 +57,33 @@ To enhance our model's predictive power, we applied advanced feature transformat
 
 Here is an example of how this transformation affected the distribution and outliers reduction of fixed acidity
 
+**Original Data**
+
+![image](https://github.com/user-attachments/assets/b9807594-df2d-4ef0-b587-c1e419eae7a5)
+
+**Transformed Data**
+
+![image](https://github.com/user-attachments/assets/aee37cc9-f4a7-4fd7-974d-800afc8f90f4)
+
+
+## **Correlation Analysis & Feature Importance**
+**Feature transformations enhanced correlations with the target column:**
+* Sulphates correlation increased from 0.199 to 0.283
+* Residual sugar slightly improved from 0.048 to 0.064
+* Negative correlations strengthened for volatile acidity and total sulfur dioxide
+  
+![image](https://github.com/user-attachments/assets/79ffb72c-1241-4700-bf77-40ae0f4e518d)
+
+
+  
+**Feature importance (SelectKBest scores) showed:**
+* Alcohol remained the most significant feature (score: 317.65)
+* Volatile acidity increased from 126.29 to 147.45
+* Sulphates increased from 66.19 to 139.53
+
+ ![image](https://github.com/user-attachments/assets/0144aff1-edd9-4fdc-9c51-ad0f850731f5)  ![image](https://github.com/user-attachments/assets/fe64084c-89e3-4040-8e43-08c9c5c44635)  ![image](https://github.com/user-attachments/assets/0614ac4c-12b3-4e51-b692-51e92d325122)
+
+
 
 
 
@@ -61,7 +91,7 @@ Here is an example of how this transformation affected the distribution and outl
 We chose the F1 score as our primary evaluation metric for the following reasons:
 * **Balance between Precision and Recall**: The F1 score provides a balanced measure of both precision and recall, which is crucial in our case where we want to accurately identify high-quality wines without missing too many or incorrectly classifying low-quality wines.
 * **Class Imbalance**: Our dataset has a significant imbalance between high and low-quality wines, with high-quality wines (rated 7 and above) representing only about 14% of the samples. The F1 score is particularly useful in such imbalanced scenarios as it takes both false positives and false negatives into account, providing a more reliable performance measure than accuracy alone.
-* Note: We also explored the use of F-beta scores, specifically with beta values of 1.2 and 1.5, to potentially give more weight to recall. However, our analysis revealed an interesting pattern: For these beta values, we consistently observed few true positive predictions and at least three times as many false negative predictions. This imbalance persisted across different beta values, indicating a potential bias in our model towards negative predictions. Given these observations, we decided to stay with the F1 score as our primary evaluation
+* **Note**: We also explored the use of F-beta scores, specifically with beta values of 1.2 and 1.5, to potentially give more weight to recall. However, our analysis revealed an interesting pattern: For these beta values, we consistently observed few true positive predictions and at least three times as many false negative predictions. This imbalance persisted across different beta values, indicating a potential bias in our model towards negative predictions. Given these observations, we decided to stay with the F1 score as our primary evaluation
 
 ### **Model Performance Progression**
 Our model's performance improved significantly through various stages:
