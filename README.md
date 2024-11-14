@@ -96,20 +96,35 @@ We chose the F1 score as our primary evaluation metric for the following reasons
 ### **Model Performance Progression**
 Our model's performance improved significantly through various stages:
 * Initial Logistic Regression: F1 score 0.3478.
-  
+  ![image](https://github.com/user-attachments/assets/a9b5366a-927b-45d4-bbd8-0d9b26672448)
+
 * After feature transformation: F1 score 0.4314.
-  
+  ![image](https://github.com/user-attachments/assets/95df3ef2-fd25-4af7-9af2-7c52e6f362b9)
+
 * With oversampling (75%): F1 score 0.5618.
-  
+![image](https://github.com/user-attachments/assets/0604eb6b-33ac-4817-b2f8-cc5a8e99f60c)
+![image](https://github.com/user-attachments/assets/334e480a-ea2d-43cb-b5ac-dc97eaaa01dc)
+
 * After Optuna optimization: F1 score 0.6104.
+![image](https://github.com/user-attachments/assets/73993f84-4d37-4872-9796-e976d4e340b4)
 
 
 ## **Cross Validation & Model Performance Analysis**
-We conducted a 40-fold cross-validation, revealing high variability in model performance (mean F1 score: 0.521). The model performed reliably with extreme scores but struggled with mid-range scores.
-Cross Validation Results
+We conducted a 40-fold cross-validation, revealing high variability in model performance (mean F1 score: 0.521). 
+
+![image](https://github.com/user-attachments/assets/55dc718e-5750-4416-91ac-a221025e3e4f)
+
+The model performed reliably with extreme scores but struggled with mid-range scores.
+
+![image](https://github.com/user-attachments/assets/a7dcbff8-f760-4b61-8792-342eae5f0741)
+
+
+![image](https://github.com/user-attachments/assets/ee0bd82d-359f-4341-8bf7-706bfb010c25)
+
 
 ## **Multi Classifier Optimization & Ensemble Models**
 We optimized six classifiers using Optuna. LightGBM emerged as the best individual model with an F1 score of 0.633 and accuracy of 0.908. However, our final ensemble model (combining Logistic Regression, KNN, and LightGBM) achieved the highest F1 score of 0.6812 with an accuracy of 0.908.
+![image](https://github.com/user-attachments/assets/bb24386f-1b1c-4a40-acf2-fcef4924f711)
 
 
 ## **Key Findings & Conclusions**
