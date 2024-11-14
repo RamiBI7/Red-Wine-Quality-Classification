@@ -44,6 +44,7 @@ Distribution of Quality Scores
 Our dataset shows a substantial imbalance between high and low-quality wines, with high-quality wines accounting for approximately 14% of the samples.
 
 Distribution of Target Value
+
 ![image](https://github.com/user-attachments/assets/63076004-a762-4c2e-bb43-0855fafbf30a)
 
 
@@ -67,19 +68,17 @@ Here is an example of how this transformation affected the distribution and outl
 
 
 ## **Correlation Analysis & Feature Importance**
-**Feature transformations enhanced correlations with the target column:**
-* Sulphates correlation increased from 0.199 to 0.283
-* Residual sugar slightly improved from 0.048 to 0.064
-* Negative correlations strengthened for volatile acidity and total sulfur dioxide
+**Correlation Analysis**
+Our analysis of feature correlations with the target variable revealed significant insights. Alcohol consistently emerged as the most correlated feature with a score of 0.41. Notably, sulphates saw an increase in correlation from 0.199 to 0.283 after transformation, making it the second most correlated feature. Additionally, residual sugar's correlation improved slightly from 0.048 to 0.064.
+Negative correlations also strengthened, with volatile acidity increasing from -0.27 to -0.29. These transformations enhanced relationships between features and the target variable, potentially improving model performance.
   
 ![image](https://github.com/user-attachments/assets/79ffb72c-1241-4700-bf77-40ae0f4e518d)
 
 
   
-**Feature importance (SelectKBest scores) showed:**
-* Alcohol remained the most significant feature (score: 317.65)
-* Volatile acidity increased from 126.29 to 147.45
-* Sulphates increased from 66.19 to 139.53
+**Feature importance**
+Using the SelectKBest method, we assessed the importance of features in our dataset. Alcohol remained the most significant feature with a score of 317.65, unchanged from the original analysis. Volatile acidity's importance increased from 126.29 to 147.45 after transformation, while sulphates rose dramatically from 66.19 to 139.53.
+These changes indicate that our feature engineering efforts not only preserved key relationships but also highlighted others, enhancing our understanding of the factors influencing wine quality.
 
  ![image](https://github.com/user-attachments/assets/0144aff1-edd9-4fdc-9c51-ad0f850731f5)  ![image](https://github.com/user-attachments/assets/fe64084c-89e3-4040-8e43-08c9c5c44635)  ![image](https://github.com/user-attachments/assets/0614ac4c-12b3-4e51-b692-51e92d325122)
 
@@ -109,15 +108,13 @@ Our model's performance improved significantly through various stages:
 
 
 ## **Cross Validation Analysis**
-We conducted a 40-fold cross-validation on the train data with a **mean F1 score: 0.521**,
-revealing high variability in model performance, indicating sensitivity to data subsets.
+To assess our model's stability and generalization capability, we performed a 40-fold cross-validation on the training data. This analysis yielded a mean F1 score of 0.521, but more importantly, it revealed high variability in model performance across different data subsets. This variability suggests that our model's predictions are sensitive to the specific composition of the training data, indicating potential challenges in consistently generalizing to new, unseen wine samples.
  
 
 ![image](https://github.com/user-attachments/assets/55dc718e-5750-4416-91ac-a221025e3e4f)
 
 ## **Model Performance Analysis**
-We have conducted a model performance analysis by quality scores. 
-The model performed reliably with extreme scores (3-5 and 8) but struggled with mid-range scores (6-7), misclassifying 36 quality 6 instances as high (18.8%) and 18 quality 7 instances as low (30.5%). 
+Our model performance analysis revealed interesting patterns across different quality scores. The model demonstrated high reliability in classifying wines at the extreme ends of the quality spectrum (scores 3-5 and 8). However, it encountered significant challenges with mid-range scores. Notably, 18.8% of wines rated 6 were misclassified as high quality, while 30.5% of wines rated 7 were incorrectly labeled as low quality. These results highlight the complexity of distinguishing between borderline cases in wine quality prediction.
 
 ![image](https://github.com/user-attachments/assets/a7dcbff8-f760-4b61-8792-342eae5f0741)
 
